@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatApp.Views.HomeView"
+    xmlns:templates="clr-namespace:ChatApp.Views.Templates"
+    xmlns:viewmodel="clr-namespace:ChatApp.ViewModels">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="Metropolis Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="WidthRequest" Value="160" />
+                <Setter Property="Margin" Value="36, 48, 0, 0" />
+            </Style>
+
+            <Style x:Key="SuggestedContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="36, 24, 0, 24" />
+            </Style>
+            
+            <Style x:Key="SearchContainerStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="52" />
+                <Setter Property="WidthRequest" Value="52" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+            </Style>
+            
+            <Color x:Key="SearchBackgroundColor">#868ACB</Color>
+            
+            <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="12, 24, 12, 0" />
+            </Style>
+
+            <Style x:Key="RecentChatAdornerStyle" TargetType="BoxView">
+                <Setter Property="Color" Value="White" />
+                <Setter Property="CornerRadius" Value="18, 18, 0, 0" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodel:HomeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="{StaticResource PrimaryColor}">
+            <Grid
+                RowDefinitions="Auto, *">
+                <Grid
+                    RowDefinitions="Auto, *">
+                    <Label 
+                        Text="Chat with your friends"
+                        Style="{StaticResource TitleTextStyle}" />
+                    <Grid      
+                        GridLayout.Row="1"
+                        ColumnDefinitions="Auto, *"
+                        Style="{StaticResource SuggestedContainerStyle}">
+                        <!-- SEARCH -->
+                        <Grid     
+                            Style="{StaticResource SearchContainerStyle}">
+                            <Ellipse   
+                                Fill="{StaticResource SearchBackgroundColor}"/>
+                        </Grid>
+                        <!-- SUGGESTED CONTACTS -->
+                        <ScrollView
+                            GridLayout.Column="1">
+                            <StackLayout
+                                Orientation="Horizontal"
+                                BindableLayout.ItemsSource="{Binding Users}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <templates:SuggestedItemTemplate />
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+                </Grid>
+                <Grid
+                    GridLayout.Row="1">
+                    <BoxView
+                        Style="{StaticResource RecentChatAdornerStyle}"/>
+                    <CollectionView
+                        ItemsSource="{Binding RecentChat}" 
+                        Style="{StaticResource RecentChatCollectionStyle}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <templates:RecentChatItemTemplate />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
