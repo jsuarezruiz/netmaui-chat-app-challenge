@@ -2,7 +2,8 @@
 <ContentView 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="ChatApp.Views.Templates.RecentChatItemTemplate">
+    x:Class="ChatApp.Views.Templates.RecentChatItemTemplate"
+    xmlns:viewmodel="clr-namespace:ChatApp.ViewModels">
     <ContentView.Resources>
         <ResourceDictionary>
 
@@ -50,6 +51,11 @@
           ColumnDefinitions="Auto, *"
           RowSpacing="0"
           Margin="12, 24">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer                
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}}, Path=DetailCommand}"      
+                    CommandParameter="{Binding}"/>
+            </Grid.GestureRecognizers>
             <Grid
                 Style="{StaticResource RecentImageContainerStyle}">
                 <Ellipse

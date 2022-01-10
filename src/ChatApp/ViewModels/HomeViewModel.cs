@@ -1,6 +1,7 @@
 ﻿using ChatApp.Models;
 using ChatApp.Services;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace ChatApp.ViewModels
 {
@@ -34,10 +35,17 @@ namespace ChatApp.ViewModels
             }
         }
 
+        public ICommand DetailCommand => new Command<User>(OnNavigate);
+
         void LoadData()
         {
             Users = new ObservableCollection<User>(MessageService.Instance.GetUsers());
             RecentChat = new ObservableCollection<Message>(MessageService.Instance.GetChats());
+        }
+
+        void OnNavigate(User parameter)
+        {
+            NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
         }
     }
 }
