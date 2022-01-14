@@ -10,12 +10,6 @@ namespace ChatApp.ViewModels
         User _user;
         ObservableCollection<Message> _messages;
 
-        public DetailViewModel()
-        {
-            User = MessageService.Instance.GetUsers()[0];
-            Messages = new ObservableCollection<Message>(MessageService.Instance.GetMessages(User));
-        }
-
         public User User
         {
             get { return _user; }
@@ -40,10 +34,10 @@ namespace ChatApp.ViewModels
 
         public override Task InitializeAsync(object navigationData)
         {
-            if (navigationData is User user)
+            if (navigationData is Message message)
             {
-                User = user;
-                Messages = new ObservableCollection<Message>(MessageService.Instance.GetMessages(user));
+                User = message.Sender;
+                Messages = new ObservableCollection<Message>(MessageService.Instance.GetMessages(User));
             }
 
             return base.InitializeAsync(navigationData);

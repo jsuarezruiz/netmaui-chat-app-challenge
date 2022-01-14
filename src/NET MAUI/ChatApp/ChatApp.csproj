@@ -50,6 +50,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\MaterialIcons-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Metropolis-Black.otf" />
 	  <None Remove="Resources\Fonts\Metropolis-Light.otf" />
 	  <None Remove="Resources\Fonts\Metropolis-Medium.otf" />

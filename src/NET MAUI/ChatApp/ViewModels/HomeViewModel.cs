@@ -35,7 +35,7 @@ namespace ChatApp.ViewModels
             }
         }
 
-        public ICommand DetailCommand => new Command<User>(OnNavigate);
+        public ICommand DetailCommand => new Command<object>(OnNavigate);
 
         void LoadData()
         {
@@ -43,7 +43,7 @@ namespace ChatApp.ViewModels
             RecentChat = new ObservableCollection<Message>(MessageService.Instance.GetChats());
         }
 
-        void OnNavigate(User parameter)
+        void OnNavigate(object parameter)
         {
             NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
         }
