@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatApp.Views.HomeView"
+    xmlns:templates="clr-namespace:ChatApp.Views.Templates"
+    xmlns:viewmodel="clr-namespace:ChatApp.ViewModels">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="Metropolis Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="WidthRequest" Value="160" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="36, 48, 0, 0" />
+            </Style>
+
+            <Style x:Key="SuggestedContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="36, 24, 0, 24" />
+            </Style>
+
+            <Style x:Key="SearchEllipseStyle" TargetType="Ellipse">
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="WidthRequest" Value="48" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            
+            <Style x:Key="SearchContainerStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+            </Style>
+            
+            <Color x:Key="SearchBackgroundColor">#868ACB</Color>
+            <SolidColorBrush x:Key="SearchBackgroundBrush" Color="{StaticResource SearchBackgroundColor}"/>
+
+            <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="18, 32, 18, 0" />
+            </Style>
+
+            <Style x:Key="RecentChatAdornerStyle" TargetType="BoxView">
+                <Setter Property="Color" Value="White" />
+                <Setter Property="CornerRadius" Value="24, 24, 0, 0" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodel:HomeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="{StaticResource PrimaryColor}">
+            <Grid
+                RowDefinitions="Auto, *">
+                <Grid
+                    RowDefinitions="Auto, *">
+                    <Label
+                        Text="Chat with your friends"
+                        Style="{StaticResource TitleTextStyle}" />
+                    <Grid      
+                        Grid.Row="1"
+                        ColumnDefinitions="Auto, *"
+                        Style="{StaticResource SuggestedContainerStyle}">
+                        <!-- SEARCH -->
+                        <Grid     
+                            Style="{StaticResource SearchContainerStyle}">
+                            <Ellipse   
+                                Fill="{StaticResource SearchBackgroundBrush}"
+                                Style="{StaticResource SearchEllipseStyle}"/>
+                            <Image
+                                Margin="18">
+                                <Image.Source>
+                                    <FontImageSource   
+                                        FontFamily="Material Icons"
+                                        Glyph="&#xe8b6;"
+                                        Color="White"
+                                        Size="12"/>
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                        <!-- SUGGESTED CONTACTS -->
+                        <CollectionView
+                            Grid.Column="1"
+                            ItemsSource="{Binding Users}"
+                            HeightRequest="60">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout
+                                    Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <templates:SuggestedItemTemplate />
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </Grid>
+                <Grid
+                    Grid.Row="1">
+                    <BoxView
+                        Style="{StaticResource RecentChatAdornerStyle}"/>
+                    <CollectionView
+                        ItemsSource="{Binding RecentChat}" 
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding DetailCommand}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}"
+                        Style="{StaticResource RecentChatCollectionStyle}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <templates:RecentChatItemTemplate />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
