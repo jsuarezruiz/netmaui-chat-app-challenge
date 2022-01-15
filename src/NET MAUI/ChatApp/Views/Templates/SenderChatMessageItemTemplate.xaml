@@ -17,6 +17,8 @@
             </Style>
             
             <Style x:Key="SenderEllipseStyle" TargetType="Ellipse">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HeightRequest" Value="30" />
                 <Setter Property="WidthRequest" Value="30" />
             </Style>
@@ -24,7 +26,7 @@
             <Style x:Key="SenderImageStyle" TargetType="Image">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Margin" Value="10" />
+                <Setter Property="Margin" Value="12" />
             </Style>
             
             <Color x:Key="MessageColor">#F7F7F8</Color>
@@ -69,7 +71,7 @@
                     Style="{StaticResource MessageShapeStyle}" />
                 <Label 
                     Text="{Binding Text}"
-                    Padding="12"
+                    Padding="12, 6"
                     Style="{StaticResource MessageTextStyle}"/>
             </Grid>
             <Label

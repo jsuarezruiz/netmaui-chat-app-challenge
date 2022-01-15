@@ -58,6 +58,7 @@
                 <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="WidthRequest" Value="40" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="6, 0, 0, 0" />
             </Style>
 
             <Style x:Key="ChatAdornerStyle" TargetType="BoxView">
@@ -66,7 +67,7 @@
             </Style>
 
             <Style x:Key="ChatCollectionStyle" TargetType="CollectionView">
-                <Setter Property="HeightRequest" Value="400" />
+                <Setter Property="HeightRequest" Value="450" />
                 <Setter Property="Margin" Value="18, 32, 18, 0" />
             </Style>
 
@@ -74,14 +75,16 @@
 
             <Style x:Key="ChatEntryContainerStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource ChatEntryBackgroundColor}" />
+                <Setter Property="HeightRequest" Value="72" />
                 <Setter Property="CornerRadius" Value="32" />
                 <Setter Property="HasShadow" Value="False" />
-                <Setter Property="Padding" Value="6" />
+                <Setter Property="Padding" Value="4" />
                 <Setter Property="Margin" Value="12" />
             </Style>
 
             <Style x:Key="ChatEntryStyle" TargetType="controls:BorderlessEntry">
                 <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Margin" Value="6, 0" />
             </Style>
 
@@ -103,8 +106,8 @@
             <Grid
                 RowDefinitions="Auto, *">
                 <Grid 
-                    Grid.Row="0"
-                    RowDefinitions="Auto, *">
+                    GridLayout.Row="0"
+                    RowDefinitions="Auto, 150">
                     <Grid 
                         ColumnDefinitions="Auto, *"
                         Style="{StaticResource NavigationButtonContainerStyle}">
@@ -116,20 +119,20 @@
                                     Command="{Binding BackCommand}" />
                             </Label.GestureRecognizers>
                         </Label>
-                        <Label
-                            Grid.Column="1"
+                        <Label                    
+                            GridLayout.Column="1"
                             Text="Search"
                             HorizontalOptions="End"
                             Style="{StaticResource NavigationButtonStyle}"/>
                     </Grid>
-                    <Grid         
-                        Grid.Row="1"
+                    <Grid 
+                        GridLayout.Row="1"
                         ColumnDefinitions="*, Auto">
-                        <Label  
+                        <Label
                             Text="{Binding User.Name}" 
                             Style="{StaticResource UsernameTextStyle}"/>
                         <StackLayout 
-                            Grid.Column="1" 
+                            GridLayout.Column="1" 
                             Style="{StaticResource ButtonsContainerStyle}">
                             <Grid>
                                 <BoxView
@@ -170,8 +173,8 @@
                         </StackLayout>
                     </Grid>
                 </Grid>
-                <Grid
-                    Grid.Row="1">
+                <Grid 
+                    GridLayout.Row="1">
                     <BoxView
                         Style="{StaticResource ChatAdornerStyle}"/>
                     <Grid
@@ -183,15 +186,15 @@
                                 Style="{StaticResource ChatCollectionStyle}" />
                         </Grid>
                         <Frame
-                            Grid.Row="1"
+                            GridLayout.Row="1"
                             Style="{StaticResource ChatEntryContainerStyle}">
                             <Grid
-                                ColumnDefinitions="*, Auto">
+                                ColumnDefinitions="*, 32">
                                 <controls:BorderlessEntry
                                     Placeholder="Type your message..."
                                     Style="{StaticResource ChatEntryStyle}"/>
                                 <Grid
-                                    Grid.Column="1">
+                                    GridLayout.Column="1">
                                     <Ellipse
                                         Fill="{StaticResource PrimaryBrush}"
                                         Style="{StaticResource SearchButtonEllipseStyle}"/>
