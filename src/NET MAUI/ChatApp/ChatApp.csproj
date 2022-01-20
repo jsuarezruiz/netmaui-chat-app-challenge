@@ -55,6 +55,7 @@
 	  <None Remove="Resources\Fonts\Metropolis-Light.otf" />
 	  <None Remove="Resources\Fonts\Metropolis-Medium.otf" />
 	  <None Remove="Resources\Fonts\Metropolis-Regular.otf" />
+	  <None Remove="Resources\Images\call.png" />
 	  <None Remove="Resources\Images\emoji1.png" />
 	  <None Remove="Resources\Images\emoji10.png" />
 	  <None Remove="Resources\Images\emoji2.png" />
@@ -65,6 +66,9 @@
 	  <None Remove="Resources\Images\emoji7.png" />
 	  <None Remove="Resources\Images\emoji8.png" />
 	  <None Remove="Resources\Images\emoji9.png" />
+	  <None Remove="Resources\Images\record.png" />
+	  <None Remove="Resources\Images\search.png" />
+	  <None Remove="Resources\Images\send.png" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
