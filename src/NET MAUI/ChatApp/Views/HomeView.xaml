@@ -62,6 +62,8 @@
                             Style="{StaticResource SearchContainerStyle}">
                             <Ellipse   
                                 Fill="{StaticResource SearchBackgroundColor}"/>
+                            <Image   
+                                Source="search.png"/>
                         </Grid>
                         <!-- SUGGESTED CONTACTS -->
                         <ScrollView
