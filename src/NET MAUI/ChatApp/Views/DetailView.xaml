@@ -121,7 +121,7 @@
             <Grid
                 RowDefinitions="Auto, *">
                 <Grid 
-                    GridLayout.Row="0"
+                    Grid.Row="0"
                     RowDefinitions="Auto, 150">
                     <Grid 
                         ColumnDefinitions="Auto, *"
@@ -135,19 +135,19 @@
                             </Label.GestureRecognizers>
                         </Label>
                         <Label                    
-                            GridLayout.Column="1"
+                            Grid.Column="1"
                             Text="Search"
                             HorizontalOptions="End"
                             Style="{StaticResource NavigationButtonStyle}"/>
                     </Grid>
                     <Grid 
-                        GridLayout.Row="1"
+                        Grid.Row="1"
                         ColumnDefinitions="*, Auto">
                         <Label
                             Text="{Binding User.Name}" 
                             Style="{StaticResource UsernameTextStyle}"/>
                         <StackLayout 
-                            GridLayout.Column="1" 
+                            Grid.Column="1" 
                             Style="{StaticResource ButtonsContainerStyle}">
                             <Grid>
                                 <BoxView
@@ -195,7 +195,7 @@
                     </Grid>
                 </Grid>
                 <Grid 
-                    GridLayout.Row="1">
+                    Grid.Row="1">
                     <BoxView
                         Style="{StaticResource ChatAdornerStyle}"/>
                     <Grid
@@ -207,7 +207,7 @@
                                 Style="{StaticResource ChatCollectionStyle}" />
                         </Grid>
                         <Frame
-                            GridLayout.Row="1"
+                            Grid.Row="1"
                             Style="{StaticResource ChatEntryContainerStyle}">
                             <Grid
                                 ColumnDefinitions="*, 32">
@@ -215,7 +215,7 @@
                                     Placeholder="Type your message..."
                                     Style="{StaticResource ChatEntryStyle}"/>
                                 <Grid
-                                    GridLayout.Column="1">
+                                    Grid.Column="1">
                                     <Ellipse
                                         Fill="{StaticResource PrimaryBrush}"
                                         Style="{StaticResource SearchButtonEllipseStyle}"/>

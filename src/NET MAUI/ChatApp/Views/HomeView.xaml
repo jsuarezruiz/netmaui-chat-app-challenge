@@ -54,7 +54,7 @@
                         Text="Chat with your friends"
                         Style="{StaticResource TitleTextStyle}" />
                     <Grid      
-                        GridLayout.Row="1"
+                        Grid.Row="1"
                         ColumnDefinitions="Auto, *"
                         Style="{StaticResource SuggestedContainerStyle}">
                         <!-- SEARCH -->
@@ -67,7 +67,7 @@
                         </Grid>
                         <!-- SUGGESTED CONTACTS -->
                         <ScrollView
-                            GridLayout.Column="1">
+                            Grid.Column="1">
                             <StackLayout
                                 Orientation="Horizontal"
                                 BindableLayout.ItemsSource="{Binding Users}">
@@ -81,7 +81,7 @@
                     </Grid>
                 </Grid>
                 <Grid
-                    GridLayout.Row="1">
+                    Grid.Row="1">
                     <BoxView
                         Style="{StaticResource RecentChatAdornerStyle}"/>
                     <CollectionView

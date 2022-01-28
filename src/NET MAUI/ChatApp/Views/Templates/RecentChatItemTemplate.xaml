@@ -65,7 +65,7 @@
                     Style="{StaticResource RecentImageStyle}"/>
             </Grid>
             <Grid
-                GridLayout.Column="1"   
+                Grid.Column="1"   
                 ColumnDefinitions="*, Auto">
                 <StackLayout>
                     <Label        
@@ -76,7 +76,7 @@
                         Style="{StaticResource MessageTextStyle}"/>
                 </StackLayout>
                 <Label 
-                    GridLayout.Column="1"
+                    Grid.Column="1"
                     Text="{Binding Time}"
                     Style="{StaticResource TimeTextStyle}"/>
             </Grid>
