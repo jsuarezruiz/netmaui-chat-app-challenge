@@ -44,57 +44,55 @@
         <viewmodel:HomeViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView
-            BackgroundColor="{StaticResource PrimaryColor}">
+        <Grid  
+            BackgroundColor="{StaticResource PrimaryColor}"
+            RowDefinitions="220, *">
             <Grid
                 RowDefinitions="Auto, *">
-                <Grid
-                    RowDefinitions="Auto, *">
-                    <Label 
-                        Text="Chat with your friends"
-                        Style="{StaticResource TitleTextStyle}" />
-                    <Grid      
-                        Grid.Row="1"
-                        ColumnDefinitions="Auto, *"
-                        Style="{StaticResource SuggestedContainerStyle}">
-                        <!-- SEARCH -->
-                        <Grid     
-                            Style="{StaticResource SearchContainerStyle}">
-                            <Ellipse   
-                                Fill="{StaticResource SearchBackgroundColor}"/>
-                            <Image   
-                                Source="search.png"/>
-                        </Grid>
-                        <!-- SUGGESTED CONTACTS -->
-                        <ScrollView
-                            Grid.Column="1">
-                            <StackLayout
-                                Orientation="Horizontal"
-                                BindableLayout.ItemsSource="{Binding Users}">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <templates:SuggestedItemTemplate />
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </StackLayout>
-                        </ScrollView>
+                <Label 
+                    Text="Chat with your friends"
+                    Style="{StaticResource TitleTextStyle}" />
+                <Grid      
+                    Grid.Row="1"
+                    ColumnDefinitions="Auto, *"
+                    Style="{StaticResource SuggestedContainerStyle}">
+                    <!-- SEARCH -->
+                    <Grid     
+                        Style="{StaticResource SearchContainerStyle}">
+                        <Ellipse   
+                            Fill="{StaticResource SearchBackgroundColor}"/>
+                        <Image   
+                            Source="search.png"/>
                     </Grid>
-                </Grid>
-                <Grid
-                    Grid.Row="1">
-                    <BoxView
-                        Style="{StaticResource RecentChatAdornerStyle}"/>
-                    <CollectionView
-                        ItemsSource="{Binding RecentChat}" 
-                        Style="{StaticResource RecentChatCollectionStyle}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <templates:RecentChatItemTemplate />
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    <!-- SUGGESTED CONTACTS -->
+                    <ScrollView
+                        Grid.Column="1">
+                        <StackLayout
+                            Orientation="Horizontal"
+                            BindableLayout.ItemsSource="{Binding Users}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <templates:SuggestedItemTemplate />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
                 </Grid>
             </Grid>
-        </ScrollView>
+            <Grid
+                Grid.Row="1">
+                <BoxView
+                    Style="{StaticResource RecentChatAdornerStyle}"/>
+                <CollectionView
+                    ItemsSource="{Binding RecentChat}" 
+                    Style="{StaticResource RecentChatCollectionStyle}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <templates:RecentChatItemTemplate />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
