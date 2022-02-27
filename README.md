@@ -1,7 +1,5 @@
 # Chat App - .NET MAUI UI Challenge
 
-_(Work in progress)_
-
 Chat App UI Challenge made with .NET MAUI.
 
 ![Chat App](images/chatapp-maui.png)
