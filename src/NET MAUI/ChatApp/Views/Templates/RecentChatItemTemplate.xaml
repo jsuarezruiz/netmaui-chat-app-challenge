@@ -12,10 +12,16 @@
                 <Setter Property="HeightRequest" Value="72" />
                 <Setter Property="WidthRequest" Value="72" />
             </Style>
-
+            
+            <Style x:Key="RecentEllipseStyle" TargetType="Ellipse">
+                <Setter Property="HeightRequest" Value="72" />
+                <Setter Property="WidthRequest" Value="72" />
+            </Style>
+            
             <Style x:Key="RecentImageStyle" TargetType="Image">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="48" />
                 <Setter Property="Margin" Value="10" />
             </Style>
 
@@ -59,7 +65,8 @@
             <Grid
                 Style="{StaticResource RecentImageContainerStyle}">
                 <Ellipse
-                    Fill="{Binding Sender.Color}"/>
+                    Fill="{Binding Sender.Color}"
+                    Style="{StaticResource RecentEllipseStyle}"/>
                 <Image
                     Source="{Binding Sender.Image}"
                     Style="{StaticResource RecentImageStyle}"/>
