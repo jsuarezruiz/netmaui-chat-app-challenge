@@ -84,7 +84,10 @@
                 <BoxView
                     Style="{StaticResource RecentChatAdornerStyle}"/>
                 <CollectionView
-                    ItemsSource="{Binding RecentChat}" 
+                    ItemsSource="{Binding RecentChat}"
+                    SelectionMode="Single"
+                    SelectionChangedCommand="{Binding DetailCommand}"
+                    SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}"
                     Style="{StaticResource RecentChatCollectionStyle}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

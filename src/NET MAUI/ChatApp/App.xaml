@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:converters="clr-namespace:ChatApp.Converters"
     x:Class="ChatApp.App"
     windows:Application.ImageDirectory="Assets">
     <Application.Resources>
@@ -10,7 +11,14 @@
             <!-- COLORS -->
             <Color x:Key="PrimaryColor">#5B61B9</Color>
             <Color x:Key="SecondaryColor">White</Color>
-
+            
+            <!-- BRUSHES -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+            <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+            
+            <!-- CONVERTERS -->
+            <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
