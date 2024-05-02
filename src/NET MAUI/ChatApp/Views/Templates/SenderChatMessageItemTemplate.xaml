@@ -32,7 +32,7 @@
             <Color x:Key="MessageColor">#F7F7F8</Color>
 
             <Style x:Key="MessageShapeStyle" TargetType="BoxView">
-                <Setter Property="BackgroundColor" Value="{StaticResource MessageColor}" />
+                <Setter Property="Color" Value="{StaticResource MessageColor}" />
                 <Setter Property="CornerRadius" Value="24, 24, 0, 24" />
             </Style>
 
